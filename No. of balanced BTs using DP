@@ -1,0 +1,18 @@
+public class Solution {
+	
+	public static int countStepsTo1(int n){
+      int[] a = new int[n+1];
+            a[0] = 0;
+            a[1] = 0;
+            for(int i=2;i<=n;i++) {
+                    int r = 1+a[i-1];
+                    if(i%2 == 0) 
+                      r = Math.min(r,1+a[i/2]);
+                    if(i%3 == 0) 
+                      r = Math.min(r,1+a[i/3]);
+              
+                    a[i] = r;
+            }
+            return a[n];
+	}
+}
